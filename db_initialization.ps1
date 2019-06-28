@@ -42,7 +42,7 @@ $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
     -SampleName "AdventureWorksLT"
 
 # Execute database script on newly created SQLDB
-Get-ChildItem "\scripts" -Filter script*.sql| `
+Get-ChildItem "db.sql"| `
 Foreach-Object{
     Write-Host 'Executing' $_.FullName
     sqlcmd -U $adminSqlLogin@$serverName -P $password -S $DBURL -d $databaseName -i $_.FullName
