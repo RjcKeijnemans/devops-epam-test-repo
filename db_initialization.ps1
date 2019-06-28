@@ -14,6 +14,8 @@ $databaseName = "mySampleDatabase"
 # The ip address range that you want to allow to access your server
 $startIp = "0.0.0.0"
 $endIp = "0.0.0.0"
+# URL name of the server hosted in azure
+$DBURL = $serverName+".database.windows.net"
 
 # Set subscription 
 Set-AzContext -SubscriptionId $subscriptionId 
@@ -40,8 +42,8 @@ $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
     -SampleName "AdventureWorksLT"
 
 # Execute database script on newly created SQLDB
-Get-ChildItem "db.sql"| `
+Get-ChildItem "\scripts" -Filter script*.sql| `
 Foreach-Object{
     Write-Host 'Executing' $_.FullName
-    sqlcmd -U $adminSqlLogin@$serverName -P $password -S $serverName.database.windows.net -d $databaseName -i $_.FullName
+    sqlcmd -U $adminSqlLogin@$serverName -P $password -S $DBURL -d $databaseName -i $_.FullName
 }
