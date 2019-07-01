@@ -1,4 +1,4 @@
-CREATE USER api_db_user FOR LOGIN api_db_user WITH PASSWORD = 'api_db_password';
+CREATE LOGIN api_db_user WITH PASSWORD = 'api_db_password';
 GO
 
 ALTER AUTHORIZATION ON DATABASE ::api_db TO api_db_user;
