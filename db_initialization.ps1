@@ -43,5 +43,5 @@ Foreach-Object{
 Get-ChildItem "db1.sql"| `
 Foreach-Object{
     Write-Host 'Executing' $_.FullName
-    sqlcmd -U "api_db_user"+@$serverName -P "Interforaewg098!" -S $DBURL -d "api_db" -i $_.FullName
+    sqlcmd -U "api_db_user"@$serverName -P "Interforaewg098!" -S $DBURL -d "api_db" -i $_.FullName
 }
