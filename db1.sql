@@ -1,3 +1,6 @@
+ALTER AUTHORIZATION ON DATABASE ::api_db TO api_db_user
+GO
+
 USE api_db
 GO
 
