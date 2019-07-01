@@ -32,9 +32,16 @@ $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGr
     -ServerName $serverName `
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
     
-# Execute database script
+# Create database and user credentials
 Get-ChildItem "db.sql"| `
 Foreach-Object{
     Write-Host 'Executing' $_.FullName
     sqlcmd -U $adminSqlLogin@$serverName -P $password -S $DBURL -d "master" -i $_.FullName
+}
+
+# Login into database and execute script
+Get-ChildItem "db1.sql"| `
+Foreach-Object{
+    Write-Host 'Executing' $_.FullName
+    sqlcmd -U "api_db_user" -P "Interforaewg098!" -S $DBURL -d "api_db" -i $_.FullName
 }
