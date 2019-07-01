@@ -39,6 +39,7 @@ $database = New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -DatabaseName $databaseName `
     -RequestedServiceObjectiveName "S0" `
+    -SampleName "start"
     
 # Execute database script on newly created SQLDB
 Get-ChildItem "db.sql"| `
