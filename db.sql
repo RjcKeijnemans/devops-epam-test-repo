@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS api_db;
 DROP USER IF EXISTS api_db_user;
 
 CREATE LOGIN api_db_user WITH PASSWORD = 'api_db_password';
 GO
 
+CREATE DATABASE api_db
 ALTER AUTHORIZATION ON DATABASE ::api_db TO api_db_user;
 GO
 
