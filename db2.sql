@@ -2,8 +2,8 @@ USE api_db
 GO
 
 CREATE SCHEMA api AUTHORIZATION api_db_user
-CREATE TABLE api_data (
-    id     SERIAL  primary key,
+CREATE TABLE api.api_data (
+    id     INT  primary key,
     uuid1  varchar(256),
     uuid2  varchar(256),
     uuid3  varchar(256)
