@@ -45,5 +45,5 @@ $database = New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
 Get-ChildItem "db.sql"| `
 Foreach-Object{
     Write-Host 'Executing' $_.FullName
-    sqlcmd -U $adminSqlLogin@$serverName -P $password -S $DBURL -d $databaseName -i $_.FullName
+    sqlcmd -U $adminSqlLogin@$serverName -P $password -S $DBURL -d "master" -i $_.FullName
 }
