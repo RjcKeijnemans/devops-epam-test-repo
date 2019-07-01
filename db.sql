@@ -1,15 +1,15 @@
-DROP DATABASE IF EXISTS api_db;
-DROP USER IF EXISTS api_db_user;
+DROP DATABASE IF EXISTS api_db
+DROP USER IF EXISTS api_db_user
 
-CREATE LOGIN api_db_user WITH PASSWORD = 'api_db_password';
+CREATE LOGIN api_db_user WITH PASSWORD = 'api_db_password'
 GO
 
-CREATE DATABASE api_db;
-ALTER AUTHORIZATION ON DATABASE ::api_db TO api_db_user;
-GRANT ALL PRIVILEGES ON api_db to api_db_user;
+CREATE DATABASE api_db
+ALTER AUTHORIZATION ON DATABASE ::api_db TO api_db_user
+GRANT ALL PRIVILEGES ON api_db to api_db_user
 GO
 
-USE api_db;
+USE api_db
 GO
 
 CREATE SCHEMA api AUTHORIZATION api_db_user

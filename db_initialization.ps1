@@ -9,8 +9,6 @@ $adminSqlLogin = "SqlAdmin"
 $password = "ChangeYourAdminPassword1"
 # Set server name - the logical server name has to be unique in the system
 $serverName = "server-$(Get-Random)"
-# The sample database name
-$databaseName = "api_db"
 # The ip address range that you want to allow to access your server
 $startIp = "0.0.0.0"
 $endIp = "0.0.0.0"
@@ -33,13 +31,6 @@ $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
 $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
-
-# Create a blank database with an S0 performance level
-$database = New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
-    -ServerName $serverName `
-    -DatabaseName $databaseName `
-    -RequestedServiceObjectiveName "S0" `
-    -SampleName "AdventureWorksLT"
     
 # Execute database script on newly created SQLDB
 Get-ChildItem "db.sql"| `
