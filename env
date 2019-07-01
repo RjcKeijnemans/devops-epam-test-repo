@@ -1,5 +1,5 @@
 POSTGRES_USER=api_db_user
-POSTGRES_PASSWORD=api_db_pass_098
+POSTGRES_PASSWORD=Api_db_pass_098&
 POSTGRES_DB=api_db
 DB_PORT=5432
 DB_HOST=localhost
