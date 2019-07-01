@@ -10,7 +10,7 @@ $password = "ChangeYourAdminPassword1"
 # Set server name - the logical server name has to be unique in the system
 $serverName = "server-$(Get-Random)"
 # The sample database name
-$databaseName = "mySampleDatabase"
+$databaseName = "api_db"
 # The ip address range that you want to allow to access your server
 $startIp = "0.0.0.0"
 $endIp = "0.0.0.0"
@@ -35,7 +35,7 @@ $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGr
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
 
 # Create a blank database with an S0 performance level
-$database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
+$database = New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -DatabaseName $databaseName `
     -RequestedServiceObjectiveName "S0" `
