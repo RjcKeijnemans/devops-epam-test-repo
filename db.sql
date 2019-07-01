@@ -3,10 +3,12 @@ DROP USER IF EXISTS api_db_user;
 CREATE USER api_db_user WITH PASSWORD = 'api_db_password';
 CREATE DATABASE api_db;
 ALTER DATABASE api_db SET OWNER api_db_user;
+
 ---
+USE api_db; 
 GO
 CREATE SCHEMA api AUTHORIZATION api_db_user
----
+
 CREATE TABLE api.api_data (
     id     SERIAL  primary key,
     uuid1  varchar(256),
