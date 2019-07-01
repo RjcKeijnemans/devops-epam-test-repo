@@ -3,10 +3,8 @@ DROP USER IF EXISTS api_db_user
 
 CREATE LOGIN api_db_user WITH PASSWORD = 'Api_db_pass_098&'
 GO
-
 CREATE USER [api_db_user] FOR LOGIN [api_db_user] WITH DEFAULT_SCHEMA=[dbo]
 GO
- 
 EXEC sp_addrolemember 'db_owner', 'api_db_user'
 GO
 
