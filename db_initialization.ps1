@@ -40,7 +40,7 @@ $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
     -DatabaseName $databaseName `
     -RequestedServiceObjectiveName "S0" `
     -SampleName "AdventureWorksLT"
-
+    
 # Execute database script on newly created SQLDB
 Get-ChildItem "db.sql"| `
 Foreach-Object{

@@ -1,22 +1,19 @@
 DROP DATABASE IF EXISTS api_db;
-DROP ROLE IF EXISTS api_db_user;
-CREATE ROLE api_db_user WITH PASSWORD 'api_db_password' LOGIN;
+DROP USER IF EXISTS api_db_user;
+CREATE USER api_db_user WITH PASSWORD = 'api_db_password';
 CREATE DATABASE api_db;
-ALTER DATABASE api_db OWNER to api_db_user;
-GRANT ALL PRIVILEGES ON DATABASE api_db to api_db_user;
+ALTER DATABASE api_db SET OWNER api_db_user;
 ---
-\connect api_db api_db_user
+GO
+CREATE SCHEMA api AUTHORIZATION api_db_user
 ---
-CREATE SCHEMA api AUTHORIZATION api_db_user;
-
-ALTER ROLE api_db_user set search_path='api';
-
 CREATE TABLE api.api_data (
     id     SERIAL  primary key,
     uuid1  varchar(256),
     uuid2  varchar(256),
     uuid3  varchar(256)
-);
+)
+GO
 
 INSERT INTO api.api_data(uuid1,uuid2,uuid3) values('62F20B03-BEAB-40B7-A353-14016E62D01C','93D38740-1AB9-414A-BA56-D18874491FDD','2B92996E-6E71-42B5-9CFC-E9D3392766F0');
 INSERT INTO api.api_data(uuid1,uuid2,uuid3) values('CE61BC6F-B255-4CE4-8826-B9714D06EA7D','67F5A741-8E98-4EEE-BA3A-888CD9172E12','86CDFA9F-0E45-4951-AE71-9A2AC11763D2');
