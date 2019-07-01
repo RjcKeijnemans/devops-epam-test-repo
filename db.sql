@@ -1,12 +1,13 @@
 DROP DATABASE IF EXISTS api_db
 CREATE DATABASE api_db
 DROP USER IF EXISTS api_db_user
-CREATE USER api_db_user FOR LOGIN api_db_user
-ALTER DATABASE api_db SET OWNER api_db_user
-GRANT ALL PRIVILEGES ON api_db to api_db_user 
 
 ---
 GO
+CREATE USER api_db_user FOR LOGIN api_db_user
+GRANT ALL PRIVILEGES ON api_db to api_db_user 
+GO
+
 CREATE SCHEMA api AUTHORIZATION api_db_user
 CREATE TABLE api_data (
     id     SERIAL  primary key,
