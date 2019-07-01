@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS api_db
 DROP USER IF EXISTS api_db_user
 
-CREATE LOGIN api_db_user WITH PASSWORD = 'Api_db_pass_098&'
+CREATE LOGIN api_db_user WITH PASSWORD = 'Interforaewg098!'
 GO
 CREATE USER [api_db_user] FOR LOGIN [api_db_user] WITH DEFAULT_SCHEMA=[dbo]
 GO
