@@ -1,14 +1,17 @@
-DROP DATABASE IF EXISTS api_db;
-DROP USER IF EXISTS api_db_user;
+DROP DATABASE IF EXISTS api_db
+DROP USER IF EXISTS api_db_user
 
-CREATE LOGIN api_db_user WITH PASSWORD = 'Interforaewg098!';
+CREATE LOGIN api_db_user WITH PASSWORD = 'Interforaewg098!'
 GO
 
-CREATE DATABASE api_db;
-ALTER AUTHORIZATION ON DATABASE ::api_db TO api_db_user;
+CREATE USER [api_db_user] FOR LOGIN [api_db_user] WITH DEFAULT_SCHEMA=[dbo]
 GO
 
-USE api_db;
+CREATE DATABASE api_db
+ALTER AUTHORIZATION ON DATABASE ::api_db TO api_db_user
+GO
+
+USE api_db
 GO
 
 CREATE SCHEMA api AUTHORIZATION api_db_user
@@ -17,7 +20,7 @@ CREATE TABLE api.api_data (
     uuid1  varchar(256),
     uuid2  varchar(256),
     uuid3  varchar(256)
-);
+)
 GO
 
 INSERT INTO api.api_data(uuid1,uuid2,uuid3) values('62F20B03-BEAB-40B7-A353-14016E62D01C','93D38740-1AB9-414A-BA56-D18874491FDD','2B92996E-6E71-42B5-9CFC-E9D3392766F0');
