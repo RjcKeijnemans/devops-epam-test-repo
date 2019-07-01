@@ -32,7 +32,7 @@ $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGr
     -ServerName $serverName `
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
     
-# Execute database script on newly created SQLDB
+# Execute database script
 Get-ChildItem "db.sql"| `
 Foreach-Object{
     Write-Host 'Executing' $_.FullName
