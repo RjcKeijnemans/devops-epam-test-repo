@@ -1,13 +1,13 @@
 DROP DATABASE IF EXISTS api_db;
 DROP USER IF EXISTS api_db_user;
 
-USE AdventureWorksLT
-GO
-
 CREATE LOGIN api_db_user WITH PASSWORD = 'api_db_password';
 GO
 
 ALTER AUTHORIZATION ON DATABASE ::api_db TO api_db_user;
+GO
+
+USE api_db
 GO
 
 CREATE SCHEMA api AUTHORIZATION api_db_user
