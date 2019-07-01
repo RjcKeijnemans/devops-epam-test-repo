@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS api_db
 DROP USER IF EXISTS api_db_user
 
-CREATE LOGIN api_db_user WITH PASSWORD = 'api_db_password'
+CREATE LOGIN api_db_user WITH PASSWORD = 'api_db_password_123'
 GO
 
 CREATE DATABASE api_db
