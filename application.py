@@ -1,19 +1,23 @@
 import os
+import flask
+import sqlalchemy
 from flask import Flask, jsonify
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy import Column, Integer, String
+import sqlalchemy.dialects.mssql.pyodbc
+import sqlalchemy.connectors.pyodbc
 
-user = os.environ['POSTGRES_USER']
-pwd = os.environ['POSTGRES_PASSWORD']
-db = os.environ['POSTGRES_DB']
-host = os.environ['DB_HOST']
-port = os.environ['DB_PORT']
+user = 'api_db_user'
+sub = 'server-10001.database.windows.net'
+pwd = 'Interforaewg098!'
+db = 'api_db'
+port = '5432'
 
 app = Flask(__name__)
 
-engine = create_engine("postgres://{0}:{1}@{2}:{3}/{4}".format(user, pwd, host, port, db))
+engine = create_engine("mssql+pyodbc://{0}:{1}@{2}:{3}/{4}".format(user, pwd, sub, port, db), echo = True)
 
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
